@@ -1,0 +1,53 @@
+page-home {     
+    .content-class {
+        background-image: -webkit-gradient(linear, 0 0, 24 1332, from(#64C3ED), color-stop(0.667, #295068));
+        background-image: -webkit-linear-gradient(271.0322446915657deg, #295068, #172833 66.7%);
+        background-image: -moz-linear-gradient(271.0322446915657deg, #295068, #172833 66.7%);
+        background-image: -o-linear-gradient(271.0322446915657deg, #295068, #172833 66.7%);
+        background-image: linear-gradient(178.96775530843428deg, #295068, #172833 66.7%);
+        
+        .logo{
+            width: 100px;
+            margin: auto;
+
+        }
+        .grid-Logo{
+            padding-top:30px;
+            padding-bottom:50px;
+        }
+        .grid-body{
+            padding:12px;
+            .row1{
+                width: 50%;
+            }
+            .btn{
+                
+                border:1px solid !important;
+                text-transform: capitalize;
+                font-size: 12px;
+                text-align: center;
+                background-color: #84888B;
+                height:9.8rem;
+                border-radius: 5px !important;
+                .icon{
+                    color:#7ed321;
+                    font-size:5rem
+                }
+            }
+        }
+        .divclass{
+            padding-bottom:10px;
+        }
+        .btn {
+            color:#fff;
+        }
+        .wel{
+            color: white;
+            
+        }
+        b {
+            color:#fff;
+            
+        }
+    }
+}

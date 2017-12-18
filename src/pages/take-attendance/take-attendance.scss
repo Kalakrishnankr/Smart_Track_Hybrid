@@ -1,0 +1,182 @@
+page-take-attendance {
+  .scroll-content {
+    background-image: -webkit-gradient(linear, 0 0, 24 1332, from(#64C3ED), color-stop(0.667, #295068));
+    background-image: -webkit-linear-gradient(271.0322446915657deg, #64C3ED, #172833 66.7%);
+    background-image: -moz-linear-gradient(271.0322446915657deg, #64C3ED, #172833 66.7%);
+    background-image: -o-linear-gradient(271.0322446915657deg, #64C3ED, #172833 66.7%);
+    background-image: linear-gradient(178.96775530843428deg, #295068, #172833 66.7%);
+    .button-inner{
+        color:#fff;
+    }
+
+    .logo{
+        width: 100px;
+        margin: auto;
+    }
+    .button-inner{
+        padding: 13px;
+        font-size: 16px;
+    }
+    .item-content { 
+        border-radius: 4px;
+        background: transparent;
+        color:#fff;    
+    }
+
+    .itc { 
+        border-radius: 4px;
+        background: white;
+        color:black;    
+    }
+    .grid{
+        padding:12px;
+        .btn{
+            width:100%;
+            border:1px solid !important;
+            text-transform: capitalize;
+            font-size: 1.8rem;
+            background-color: #84888B;
+            height:4.8rem;
+            border-radius: 5px !important;
+            color:#fff;
+        }
+       .btn1{
+        width:100%;
+            border:1px solid !important;
+            text-transform: capitalize;
+            font-size: 1.8rem;
+            background-color: #84888B;
+            height:4.8rem;
+            border-radius: 6px !important;
+            color:#fff;
+            bottom:5px;
+            left:0;
+            
+    }
+       
+    }
+    .signup-col{
+        width:50%;
+        text-justify: 10px;
+        
+    }
+    .select{
+        max-width:100%;
+    }
+    .sub-btn{
+      width:100%;
+      
+    }
+    .first-row{
+        width: 100%;
+        border-radius: 8px;
+        border-color: #fff;
+        
+    }
+    .sec-row{
+        color:#fff;
+    }
+    .sec-row1{
+        border-radius: 8px;
+        background: transparent;
+        color:#fff;
+        font-size: 1.8rem;
+
+    }
+     .sec-row3{
+        border-radius: 8px;
+        background: transparent;
+    }
+    .formContent{
+         border-radius: 8px;
+         
+         
+    }
+
+    .formContent1{
+        border-radius: 8px;
+        max-height: 46px;
+        background-color:#84888B; 
+        border:1px solid #fff !important;
+        text-align: center;
+        padding-inline-start: 10px;
+        b{
+            color:#fff;
+            
+        }
+    }
+  }
+
+    .btn{
+        border-radius: 8px;
+        background-color: #84888B;
+        b{
+         padding: 25px
+        }
+    }
+    
+    .dropdown{
+                position:absolute;
+                border-radius: 8px;
+                right: 10px;
+                padding: 10px;                
+                max-width: 100%;
+            }
+            .text{
+                position:absolute;
+                right: 20px;
+                width: 100px;
+                padding: 5px;
+                
+            }
+            
+  .checkmark-circle-icon{
+      color:#7ED321;
+      font-size: 3.0rem;
+  }
+
+    .cart_icon{
+        color:#7ED321;
+        font-size: 3.0rem;
+        position: absolute;
+        top: 12px;
+        right: 12px;
+    }
+
+    .button_icon{
+        color:#7ED321;
+        font-size: 3.0rem;
+        position: absolute;
+        
+    }
+    .toast_class{
+        .toast-md .toast-wrapper {
+        $toast-md-background: red;
+    }
+
+    .toast-md .toast-message {
+        padding: 19px 16px 17px;
+        font-size: 1.5rem;
+        text-align: center;
+    }
+        
+    }
+
+    .notifications-badge {
+            background-color: red;
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            border-radius: 100%;
+        }
+    .icon3{
+        color:#7ED321;
+        font-size: 3.0rem;
+
+     }
+
+   .customIcon {
+
+    font-size: 1.7em;
+}
+}

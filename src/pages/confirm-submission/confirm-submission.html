@@ -1,0 +1,84 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>CKR AbiWhiz</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class ="content_class">
+  <ion-grid>
+        <ion-row>
+          <ion-col center text-center>
+            <img src="assets/imgs/fr.png" class="logo"/>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+        <ion-col center text-center>
+          <h2>Confirm Submission</h2>
+        </ion-col>
+      </ion-row>
+
+      <div *ngIf="distance < 1">
+        <ion-row>
+          <ion-col center text-center class="label-green">
+            <b>You are taking attendance in a {{distance}} km radius of the Project Location</b>
+          </ion-col>
+        </ion-row>
+      </div>
+
+      <div *ngIf="distance > 1 && distance < 20 ">
+        <ion-row>
+          <ion-col center text-center class="label-orange">
+            <b>You are taking attendance in a {{distance}} km radius of the Project Location</b>
+          </ion-col>
+        </ion-row>
+      </div>
+      <div *ngIf="distance > 20 ">
+        <ion-row>
+          <ion-col center text-center class="label-red">
+            <b>You are taking attendance in a {{distance}} km radius of the Project Location</b>
+          </ion-col>
+        </ion-row>
+      </div>
+  </ion-grid>
+
+  <ion-grid class="view">
+    
+    <div *ngFor="let pro of employeeDetails" >
+      <ion-card>
+          <ion-card-content >
+            <ion-row>
+                <ion-col col-2>
+                  <img  src="{{pro.Image}}" />
+                </ion-col> 
+
+                <ion-col text-left col-5>
+                  <b> {{pro.EmpName}}</b>
+                  <p class="para">{{pro.EmpCode}}</p>
+                </ion-col>
+              
+                <ion-col text-left col-5  *ngIf="pro.Punch_mode == 'check_in'">
+                  <b> In</b>: {{pro.Punch_time}}
+                  <p *ngIf="pro.Extra_hour != 0"> <b>{{pro.Extra_hour_mode}}: </b> {{pro.Extra_hour}} Hour</p>
+                   
+                </ion-col>
+
+                <ion-col text-left col-5 text-center *ngIf="pro.Punch_mode == 'check_out'">
+                  <b> Out</b>: {{pro.Punch_time}}
+                  <p *ngIf="pro.Extra_hour != 0"> <b>{{pro.Extra_hour_mode}}: </b> {{pro.Extra_hour}} Hour</p>
+                </ion-col>
+
+            </ion-row>
+          </ion-card-content>
+      </ion-card>
+    </div>
+    <ion-row>
+        <ion-col class="signup-col">
+          <button ion-button block class="btn" type="submit" (click) ="cancel()">cancel</button> 
+        </ion-col>
+        <ion-col class="signup-col">
+          <button ion-button block class="btn" type="submit" (click)="proceed()">proceed</button>
+        </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

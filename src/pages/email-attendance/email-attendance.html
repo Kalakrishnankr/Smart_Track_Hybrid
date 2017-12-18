@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>CKR AbiWhiz</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="content">
+   
+   <ion-row>
+      <ion-col center text-center>
+        <img src="assets/imgs/fr.png" class="logo"/>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col center text-center>
+        <h2>Email Attendance</h2>
+      </ion-col>
+    </ion-row>
+    
+    <ion-grid>    
+     
+      <ion-row class="first-row">
+          <button ion-button class="btn" block > 
+            <ion-icon class="icon3" name="calendar" padding-right></ion-icon>           
+            <ion-datetime display="MM/DD/YYYY" [max]="today" pickerFormat="DD MMM YYYY" [(ngModel)]="email_date" (ngModelChange)="SentMail(email_date)"></ion-datetime>            
+          </button>  
+      </ion-row>
+
+      <ion-row class="first-row">
+         <br>
+      </ion-row>
+      
+      <ion-row  span="vertical-align: middle;"> 
+          <ion-item class="first-row">
+              <ion-input  Name="email_id" placeholder="Email ID" [(ngModel)]="email_id"></ion-input>
+          </ion-item>
+      </ion-row>
+
+      <ion-row class="first-row">
+         <br>
+      </ion-row>
+        
+      <ion-row class="first-row">                
+        <button ion-button class="btn" block (click)="emailReportSend()">
+            <ion-icon class="icon" name="mail" padding-right></ion-icon>
+            <b center>Send Email</b>
+        </button>                                
+      </ion-row> 
+
+    </ion-grid>
+
+</ion-content>

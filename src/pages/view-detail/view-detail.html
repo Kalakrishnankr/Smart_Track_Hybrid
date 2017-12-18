@@ -1,0 +1,65 @@
+
+<ion-content padding class="Background" (click)="closeModel()">
+
+      <div class="row" *ngFor ="let item of AttendanceList; let i=index" padding>
+             <div  *ngIf="loopPosition == i">
+                <ion-card class="card_content">
+                    <ion-row>
+                        <ion-col center text-center>
+                          <ion-icon class="icon" name="contact"></ion-icon>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row >
+                        <ion-col center text-center>
+                            <b>{{item.SFirstName}}</b>
+                        </ion-col>
+                    </ion-row>
+
+                    <ion-row >
+                         <ion-col center text-center>
+                            <p class="cardp"><b>{{item.SEmployeeNumber}}</b></p>
+                         </ion-col>
+                    </ion-row>
+
+                    <div class="row">  
+                        <div class="col header"><b>Project Name:</b></div>
+                        <div class="col">{{item.SProjectName}}</div>
+                    </div>
+
+                    <div class="row">  
+                        <div class="col header"><b>Location:</b></div>
+                        <div class="col">{{item.SLocation}}</div>
+                    </div>
+                
+                    <ion-row>
+                        <ion-col col-6>
+                            <b>Clock In:</b>
+                            {{item.STimeIn}}
+                        </ion-col>
+                        <div *ngFor="let ob of item.objLstExtraHours ">
+                                <ion-col col-6 *ngIf="ob.SExtraHoursMode == 'Early' && ob.DblExtraHours != '0'">
+                                  <b>{{ob.SExtraHoursMode}}:</b>
+                                    {{ob.DblExtraHours}}
+                                </ion-col>
+                        </div>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col col-6>
+                            <b>Clock Out:</b>
+                            {{item.SOutTime}}
+                        </ion-col>
+                        <div *ngFor="let ob of item.objLstExtraHours ">
+                            <ion-col col-6 *ngIf="ob.SExtraHoursMode == 'Lunch' && ob.DblExtraHours != '0'">
+                                <b>{{ob.SExtraHoursMode}}:</b>
+                                {{ob.DblExtraHours}}
+                            </ion-col>
+                        </div>
+                    </ion-row>
+
+                </ion-card>
+         
+              </div>
+          
+          </div>
+
+</ion-content>

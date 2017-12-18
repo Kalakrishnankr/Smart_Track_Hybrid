@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-navbar color="danger"  hideBackButton="true">
+    <ion-title>
+      CKR AbiWhiz
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="welcome" id="welcome">
+  <ion-grid>
+    <ion-row>
+      <ion-col center text-center>
+      </ion-col>
+    </ion-row>
+  
+    <ion-row>
+      <ion-col center text-center>
+        <img src="assets/imgs/fr1.png" class="logo"/>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col center text-center>        
+      </ion-col>
+    </ion-row>
+    <br>
+    <br>
+  </ion-grid>
+
+  <ion-grid padding-left >
+    <ion-row>
+      <ion-col center text-center>          
+          <ion-item>
+             <ion-icon class="icon1" name="person" item-left></ion-icon>
+              <ion-input type="text" placeholder="Username" name="UserCode" [(ngModel)]="registerCredentials.UserCode" required></ion-input>
+            </ion-item>    
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col center text-center>
+         <ion-item>
+            <ion-icon class="icon1" name="lock" item-left></ion-icon>
+              <ion-input type="password" placeholder="Password" name="UserPassword" [(ngModel)]="registerCredentials.UserPassword" required></ion-input>
+            </ion-item>
+        </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col >
+            <button ion-item class="login" outline no-lines (click)="login()">
+              <ion-icon class="icon3" name="checkmark" item-left></ion-icon><b center>Login</b>
+            </button>         
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

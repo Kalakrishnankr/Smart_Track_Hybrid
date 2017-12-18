@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>CKR AbiWhiz</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content class="content-class">
+      
+      <ion-grid>
+
+        <ion-row>
+          <ion-col center text-center>
+          </ion-col>
+        </ion-row>
+    
+        <ion-row>
+          <ion-col center text-center>
+           <img src="assets/imgs/fr.png" class="logo"/>
+          </ion-col>
+        </ion-row> 
+
+      </ion-grid>
+      
+        <ion-grid padding>
+            <ion-row class="items">
+              <ion-label class="label" left text-left>Select Project</ion-label>
+              <ion-item center text-left>                  
+                  <ion-select span class = "dropdown" [(ngModel)]="project" interface="popover" (ionChange)="onSelect()">
+                    <ion-option [selected] ="true" *ngFor="let pro of projectAndLocation_list" value="{{pro.SProjectTitle}}">{{pro.SProjectTitle}}</ion-option>  
+                  </ion-select>
+              </ion-item>              
+            </ion-row>
+
+            <ion-row>
+              <ion-col >
+              </ion-col>
+            </ion-row>
+        
+        
+            <ion-row class="items">
+                <ion-label class="label" left text-left> Select Location  </ion-label>
+                <ion-item center text-left>
+                    <ion-select span class = "dropdown" [(ngModel)]="location" interface="popover">
+                        <ion-option span class = "text" [selected] ="true" *ngFor="let loc of location_list" value="{{loc.SLocation}}">{{loc.SLocation}}</ion-option>  
+                    </ion-select>
+                </ion-item>
+            </ion-row> 
+
+            <ion-row>
+                <ion-col center text-center>
+                </ion-col>
+            </ion-row>
+              <ion-row>
+                <ion-col center text-center>
+                </ion-col>
+            </ion-row>
+
+            <ion-row> 
+                <button class="btn" ion-button full color="energy" (click)="next()"><ion-icon class="checkmark" name="checkmark" padding-right></ion-icon>Next</button>
+            </ion-row>
+
+            <div *ngIf="distance < 1">
+              <ion-row>
+                <ion-col center text-center class="label-green">
+                  <b>You are taking attendance in a  {{distance}} km radius of the Project Location</b>
+                </ion-col>
+              </ion-row>
+            </div>
+
+            <div *ngIf="distance > 1 && distance < 20 ">
+              <ion-row>
+                <ion-col center text-center class="label-orange">
+                  <b>You are taking attendance in a  {{distance}} km radius of the Project Location</b>
+                </ion-col>
+              </ion-row>
+            </div>
+            <div *ngIf="distance > 20 ">
+              <ion-row>
+                <ion-col center text-center class="label-red">
+                  <b>You are taking attendance in a  {{distance}} km radius of the Project Location</b>
+                </ion-col>
+              </ion-row>
+            </div>
+          
+        </ion-grid>
+</ion-content>

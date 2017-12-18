@@ -1,0 +1,49 @@
+
+<ion-header>
+  <ion-navbar>
+    <ion-title>CKR AbiWhiz</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="content">
+   
+   <ion-row>
+    <ion-col center text-center>
+      <img src="assets/imgs/fr.png" class="logo"/>
+    </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col center text-center>
+        <h2>View Attendance</h2>
+      </ion-col>
+    </ion-row>
+    
+    <ion-grid class="view">    
+      <ion-row >
+        <ion-col center text-center>
+          <button ion-button class="btn" >
+              <ion-icon class="icon3" name="calendar" padding-right></ion-icon>
+              <ion-datetime  display="MM/DD/YYYY" pickerFormat="DD MMM YYYY" [(ngModel)]="myDate" (ngModelChange)="get(myDate)"></ion-datetime>             
+          </button>  
+        </ion-col>
+      </ion-row>  
+        
+      <div class="row" *ngFor ="let item of AttendanceList; let i=index" >            
+        <ion-card  class="card" (click)="card_details(item.SEmployeeNumber,i)">
+          <ion-row>
+            <ion-col class="col">
+              <ion-icon class="icon1" name="contact"></ion-icon>
+            </ion-col>
+            <ion-col class="col" padding-right>
+              <b>{{item.SFirstName}}</b>
+              <p class="cardp">{{item.SEmployeeNumber}}</p>
+            </ion-col>
+            <ion-col class="col">
+              <b>Clock In</b>:<p>{{item.STimeIn}}</p>
+              <b>Clock Out</b>:<p>{{item.SOutTime}}</p>
+            </ion-col>
+          </ion-row>
+        </ion-card>              
+      </div> 
+    </ion-grid>
+</ion-content>

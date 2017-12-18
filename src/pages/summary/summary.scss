@@ -1,0 +1,34 @@
+page-summary {
+      .content {
+        background-image: -webkit-gradient(linear, 0 0, 24 1332, from(#64C3ED), color-stop(0.667, #295068));
+        background-image: -webkit-linear-gradient(271.0322446915657deg, #64C3ED, #172833 66.7%);
+        background-image: -moz-linear-gradient(271.0322446915657deg, #64C3ED, #172833 66.7%);
+        background-image: -o-linear-gradient(271.0322446915657deg, #64C3ED, #172833 66.7%);
+        background-image: linear-gradient(178.96775530843428deg, #295068, #172833 66.7%);
+        .logo{
+            width: 100px;
+            margin: auto;
+        }
+    }
+    .signup-col{
+        width:50%;
+        text-justify: 10px;
+        
+    }
+    h2{
+        color:#fff;
+    }
+
+    .result-icon-green{
+         color:#7ED321;
+         font-size: xx-large;
+         font-weight: bold;
+
+    }
+    .result-icon-red{
+        color:red;
+        font-size: xx-large;
+        font-weight: bold;
+
+    }
+}

@@ -1,0 +1,192 @@
+<ion-header>
+    <!--changes by lis-->
+    <ion-navbar hideBackButton>
+          <ion-buttons left>
+            <button ion-button (click)="back()">
+                <ion-icon class="customIcon" name="arrow-back"></ion-icon>
+            </button>
+         </ion-buttons>
+
+
+      <ion-title>CKR AbiWhiz</ion-title>
+      <ion-buttons end>
+         <button ion-button large clear (click)="cart()">
+            <ion-icon  class= "cart_icon" name="cart"> <ion-badge class="notifications-badge" color = "danger">{{emp_count}} </ion-badge> </ion-icon>
+         </button>
+      </ion-buttons>
+   </ion-navbar>
+</ion-header>
+<ion-content>
+
+   <ion-grid>
+      <ion-row>
+         <ion-col center text-center>
+            <img src="assets/imgs/fr.png" class="logo"/>
+         </ion-col>
+      </ion-row>
+   </ion-grid>
+   
+   <ion-grid>
+      <div class="formContent">         
+            <div *ngIf="EnableFaceRecognition == true">      
+                <ion-row class="first-row">                
+                        <button ion-button class="btn"  block outline no-lines (click)="takePicture()">
+                            <ion-icon class="icon3" name="camera" padding-right></ion-icon>               
+                            Take Snap
+                        </button>                                
+                </ion-row>   
+
+                <ion-list *ngIf="personDataStatus == 'true'">   
+                    <ion-row>
+                        <ion-col center text-center>
+                            <ion-item no-lines class="sec-row1">{{personData.name}}</ion-item>
+                            <!--<ion-item no-lines class="sec-row1">{{personData.userData}}</ion-item>-->
+                        </ion-col>
+                    </ion-row>
+                </ion-list>
+            </div>
+            
+    
+
+            <div *ngIf="EnableFaceRecognition == false">                  
+                <ion-row  span="vertical-align: middle;"> 
+                    <ion-col col-6 class="first-row">
+                        <ion-item class="first-row">
+                            <ion-input class="input-text" Name="empid" placeholder="Employee ID" [(ngModel)]="emp.EmpCode"></ion-input>
+                        </ion-item>
+                    </ion-col>
+
+                    <ion-col col-6 class="first-row">
+                            <!--<ion-buttons right>-->
+                                <button ion-button class="btn1" (click)="empIdVerification()">
+                                    <ion-icon class="checkmark-circle-icon" name="checkmark-circle-outline" padding-right></ion-icon>
+                                    Verify
+                                </button>
+                            <!--</ion-buttons>-->
+                        
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col center text-center>
+                    <ion-item no-lines class="sec-row1">{{details.FirstName}}</ion-item>
+                    </ion-col>
+                </ion-row>
+            </div>
+
+            <div>
+            <ion-list radio-group [(ngModel)]="emp.Punch_mode">
+              
+                   <ion-row>
+                       <ion-col class="item-content">
+                           <ion-item class="itc">
+                            <ion-radio value="check_in" (click)="change_punch_mode()"></ion-radio>                       
+                            <ion-label>Clock In</ion-label>
+                            </ion-item>
+                        </ion-col>
+                        <ion-col>
+                            <ion-item class = "itc">
+                            <ion-radio value="check_out" (click)="change_punch_mode()"> </ion-radio>                      
+                            <ion-label >Clock Out</ion-label>
+                            </ion-item>
+                        </ion-col>                                               
+                   </ion-row>
+                  
+            </ion-list>
+            </div>
+                  
+        <ion-row>
+            <ion-col>
+               <ion-label class="sec-row1">Extra Hours Mode</ion-label>
+            </ion-col>
+            <ion-col>
+               <ion-item class="formContent" center text-center>
+                  <ion-select  class = "dropdown" Name="extrahourmode" [(ngModel)]="emp.Extra_hour_mode">
+                  <!--<ion-option [selected] = "emp.Extra_hour_mode" value="Early">Early</ion-option>-->
+                  <!--<ion-option value="Lunch">Lunch</ion-option>-->
+                   <ion-option [selected] = "emp.Extra_hour_mode" *ngIf="this.emp.Punch_mode=='check_in'" value="Early">Early</ion-option>
+                   <ion-option value="Lunch" *ngIf="this.emp.Punch_mode=='check_out'" >Lunch</ion-option>
+                  </ion-select>
+               </ion-item>
+            </ion-col>
+         </ion-row>
+
+         <ion-row>
+            <ion-col>
+               <ion-label class="sec-row1">Extra Hours</ion-label>
+            </ion-col>
+
+            
+            <!--<div *ngIf="emp.Extra_hour_mode == 'Early' ">-->
+                <ion-col  center text-center *ngIf="emp.Extra_hour_mode == 'Early' ">
+                <ion-item class="formContent">
+                    <ion-select class = "dropdown" Name="extrahours" [(ngModel)]="emp.Extra_hour">
+                    <ion-option [selected] ="emp.Extra_hour" [value]="0">0</ion-option>
+                    <ion-option value="0.5">0.5</ion-option>
+                    <ion-option value="1">1</ion-option>
+                    <ion-option value="1.5">1.5</ion-option>
+                    <ion-option value="2">2</ion-option>            
+                    </ion-select>
+                </ion-item>
+                </ion-col>
+            <!--</div>-->
+            <!--<div *ngIf="emp.Extra_hour_mode == 'Lunch' ">-->
+                <ion-col  center text-center *ngIf="emp.Extra_hour_mode == 'Lunch' ">
+                <ion-item class="formContent">
+                    <ion-select class = "dropdown" Name="extrahours" [(ngModel)]="emp.Extra_hour">
+                    <ion-option [selected] ="emp.Extra_hour" [value]="0">0</ion-option>
+                    <ion-option value="0.5">0.5</ion-option>
+                    <ion-option value="1">1</ion-option>          
+                    </ion-select>
+                </ion-item>
+                </ion-col>
+            <!--</div>-->
+         </ion-row>
+             
+        <div *ngIf="EnableFaceRecognition == false">                 
+            <ion-row>                
+                    <ion-col class="signup-col">                
+                            <button ion-button class="btn"  block outline no-lines (click)="takePicture()">
+                                <ion-icon class="icon3" name="camera" padding-right></ion-icon>               
+                                Take Snap
+                            </button>                                
+                        </ion-col>            
+                    <ion-col class="signup-col">
+                        <button ion-button block class="btn"  type="submit" (click)="addMore()">
+                            <ion-icon class="icon3" name="add" padding-right></ion-icon>
+                            Add More 
+                        </button>
+                    </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col class="signup-col">
+                    <button ion-button block class="btn" type="submit" (click) ="submit()">
+                    <ion-icon class="icon3" name="checkmark"padding-right></ion-icon>
+                    Submit
+                    </button>
+                </ion-col>         
+            </ion-row>
+        </div>
+        <div *ngIf="EnableFaceRecognition == true">                 
+            <ion-row>                                             
+                    <ion-col class="signup-col">
+                        <button ion-button block class="btn" block type="submit" (click)="addMore()">
+                            <ion-icon class="icon3" name="add" padding-right></ion-icon>
+                            Add More 
+                        </button>
+                    </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col class="signup-col">
+                    <button ion-button block class="btn" type="submit" (click) ="submit()">
+                    <ion-icon class="icon3" name="checkmark"padding-right></ion-icon>
+                    Submit
+                    </button>
+                </ion-col>         
+            </ion-row>
+        </div>
+
+
+
+    </div>
+   </ion-grid>
+</ion-content>

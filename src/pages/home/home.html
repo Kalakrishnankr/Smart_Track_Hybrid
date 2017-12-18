@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar hideBackButton="true">
+    <ion-title>CKR AbiWhiz</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="content-class">
+ 
+    <ion-grid class="grid-Logo"> 
+      <ion-row>
+        <ion-col center text-center>
+          <img src="assets/imgs/fr.png" class="logo"/>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  
+    <ion-grid class="grid-body">
+
+        <div class="divclass" text-center>
+            <b class="wel">Welcome {{user_name}} ({{usercode}})</b>
+        </div>
+
+        <ion-row >
+            <ion-col class="row1">
+              <ion-item no-lines block outline class="btn"  color="energy" (click)="take_attendance()"> <ion-icon class="icon" name="create" ></ion-icon><br><b>Take Attendance</b></ion-item>
+            </ion-col>
+            <ion-col class="row1">
+              <button  ion-item no-lines block outline class="btn" color="energy" (click)="view_attendance()"><ion-icon class="icon" name="list-box" ></ion-icon><br><b>View Attendance</b></button>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col class="row1">
+              <button  ion-item no-lines block outline class="btn"  color="energy" (click)="email_reports()"><ion-icon class="icon" name="mail"></ion-icon><br><b>Email Reports</b></button>
+            </ion-col>
+            <ion-col class="row1">
+              <button  ion-item no-lines block outline class="btn" (click)="logout()" ><ion-icon class="icon" name="power" ></ion-icon><br><b>Logout</b></button>
+            </ion-col>
+        </ion-row> 
+
+  </ion-grid>
+
+</ion-content>

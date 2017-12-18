@@ -1,0 +1,51 @@
+
+<ion-header>
+
+  <ion-navbar  hideBackButton="true">
+    <ion-title>CKR AbiWhiz</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="content">
+  <ion-grid>
+        <ion-row>
+          <ion-col center text-center>
+            <img src="assets/imgs/fr.png" class="logo"/>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+        <ion-col center text-center>
+          <h2>Summary</h2>
+        </ion-col>
+      </ion-row>
+  </ion-grid>
+
+    <div *ngFor="let item of Result">
+      <ion-card>
+        <ion-row>
+          <ion-col col-2>
+            {{item.SEmployeeNumber}}
+          </ion-col>
+          <ion-col col-8>
+            {{item.SResult}}
+          </ion-col>
+            <ion-col  col-2 center text-center *ngIf="item.SResult.indexOf('successfully') != -1 ">
+            <ion-icon class="result-icon-green" name="checkmark" ></ion-icon>
+          </ion-col>
+            <ion-col  col-2 center text-center *ngIf="item.SResult.indexOf('successfully') == -1 ">
+            <ion-icon  class="result-icon-red" name="close" ></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+    </div> 
+
+    <ion-row>
+        <ion-col class="signup-col">
+          <button ion-button block color="dark" type="submit" (click)="submit()">Ok</button>
+        </ion-col>
+    </ion-row>
+
+</ion-content>
